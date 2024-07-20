@@ -7,7 +7,7 @@ Key Features:
 - DDoS Traffic Classification: Identify potential DDoS attacks by analyzing traffic patterns.
 - Web Interface: User-friendly interface for uploading traffic capture files in a specified format.
 - Machine Learning Integration: Integrates a trained model for traffic classification into normal or malicious(DDoS).
-- Visualizations: Presents prediction results in an easy-to-understand format (using specific charts/ probabilities)
+- Visualization: Presents prediction results in an easy-to-understand format (using specific charts/ prediction probabilities).
 
 # DDoS-Web-App
 
@@ -34,9 +34,7 @@ Ensure you have the following installed:
 
 1. **Clone the repository**:
 
-- git clone https://github.com/username/DDoS-Biggest-Backup
-
-.git
+- git clone https://github.com/username/DDoS-Biggest-Backup.git
 - cd Flask
 
 2. **Create and activate a virtual environment**
