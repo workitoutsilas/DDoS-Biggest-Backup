@@ -15,7 +15,7 @@ This project is a web application designed to monitor and manage potential DDoS 
 
 ## Project Structure
 
-- `forFlask/` - Parent folder which contains the project files.
+- `Flask/` - Parent folder which contains the project files.
 - `model/` - Random Forest and Support Vector Classifiers and the scaler used for model training.
 - `static/` - Contains static files such as CSS, JavaScript, and images.
 - `templates/` - Contains HTML templates for the project.
