@@ -8,7 +8,7 @@ const header = document.querySelector(".nav-container"),
   UploadContainer = document.getElementById("upload-container"),
   discardButton = document.getElementById("discard-file-butn"),
   submitBtn = document.getElementById("subButn"),
-  resultBtn = document.getElementById("start-processing");
+  resultBtn = document.getElementById("generateChart");
 
 /** Navbar closing on outside click - Jquery */
 $(document).ready(function () {
@@ -86,7 +86,7 @@ discardButton.addEventListener("click", () => {
   UploadContainer.style.visibility = "hidden";
 
   // Reload the page
-  // location.reload();
+  location.reload();
 });
 
 // Function to trigger the modal
@@ -140,8 +140,8 @@ function submitData(event) {
   })
     .then((response) => {
       response.json();
+      animateProcessing();
       if (response.ok) {
-        animateProcessing();
         // Handle the successful response
         console.log("Success:");
       } else {
