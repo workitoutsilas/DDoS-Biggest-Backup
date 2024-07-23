@@ -275,9 +275,7 @@
                             class="btn-close btn-custom"
                             data-bs-dismiss="modal"
                             aria-label="Close"
-                          >
-                            <!-- <img src="../static/Images/close-button.svg" /> -->
-                          </button>
+                          ></button>
                         </div>
                         <div
                           class="modal-footer d-flex align-items-center justify-content-center"
@@ -287,7 +285,6 @@
                             background-color: whitesmoke;
                           "
                         >
-                          <!--border-bottom: 2px solid #013e40a0;-->
                           <p
                             class="text-center"
                             style="color: #013e40; font-size: 1em"
@@ -296,18 +293,6 @@
                             select a smaller file.
                           </p>
                         </div>
-                        <!--<div
-                          class="modal-footer"
-                          style="background-color: whitesmoke"
-                        >
-                          <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                          >
-                            Close
-                          </button>
-                        </div>-->
                       </div>
                     </div>
                   </div>
@@ -339,12 +324,143 @@
                     <div class="mb-3" style="height: auto">
                       <button
                         disabled
-                        id="start-processing"
                         type="button"
-                        onclick="Results()"
+                        id="generateChart"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2"
                       >
                         Display Results
                       </button>
+
+                      <!--Modal for Summary-->
+                      <div
+                        class="modal fade"
+                        id="exampleModal2"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div
+                          class="modal-dialog modal-dialog-centered modal-fullscreen"
+                        >
+                          <div class="modal-content">
+                            <div
+                              class="modal-header container-fluid"
+                              style="background-color: #013e40"
+                            >
+                              <h1
+                                class="modal-title fs-5"
+                                id="exampleModalLabel"
+                              >
+                                Model Predictions
+                              </h1>
+                              <button
+                                type="button"
+                                class="btn-close btn-custom"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div
+                              class="modal-body container"
+                              style="border-bottom: 2px solid #013e409c"
+                            >
+                              <div class="main-child">
+                                <div class="row">
+                                  <div
+                                    class="col-12"
+                                    style="
+                                      border-bottom: 2px solid #013e409c;
+                                      margin-top: 10px;
+                                    "
+                                  >
+                                    <h3
+                                      class="text-center m-0 p-0"
+                                      style="color: #013e40"
+                                    >
+                                      Statistic Summary on Model predictions
+                                    </h3>
+                                  </div>
+                                  <div class="col-12" style="margin-top: 20px">
+                                    <div class="row">
+                                      <div class="col-md-5">
+                                        <div class="firstThis">
+                                          <div id="chartContainer">
+                                            <canvas id="myChart"></canvas>
+                                          </div>
+
+                                          <div
+                                            id="labelContainer"
+                                            class="label-container"
+                                          ></div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-7">
+                                        <div
+                                          class="secondThis d-flex align-items-start justify-content-between flex-column"
+                                        >
+                                          <h4
+                                            class="fw-bold fs-3"
+                                            style="color: #013e40"
+                                          >
+                                            Side Note.
+                                          </h4>
+                                          <p
+                                            class="fw-bold fs-6"
+                                            style="color: #013e40"
+                                          >
+                                            The chart shows a statistics on the
+                                            average prediction probabilities of
+                                            our model.
+                                          </p>
+                                          <p style="color: #013e40">
+                                            To account for the possibility of
+                                            misclassification, prediction
+                                            probabilities are used, allowing
+                                            users to see the model's level of
+                                            certainty. For visualization
+                                            purposes, the average prediction
+                                            probabilities of both classes
+                                            (malicious and normal) are computed
+                                            for the uploaded traffic file.
+                                          </p>
+                                          <p style="color: #013e40">
+                                            A prediction of 0 indicates that the
+                                            traffic is likely malicious, while a
+                                            prediction of 1 suggests that the
+                                            traffic is most likely normal. To
+                                            visualize the technical results of
+                                            the predictions, click on the "See
+                                            Details" button.
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-12">
+                                    <button
+                                      type="button"
+                                      class="btn btn-secondary p-2"
+                                      onclick="Results()"
+                                    >
+                                      See Details
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer container mt-2">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -412,6 +528,7 @@
       </section>
     </footer>
     <!--Script Files-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script
       src="Bootstrap/fontaweseomejsall.min.js"
       integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
@@ -421,6 +538,6 @@
     <script src="../static/Bootstrap/bootstrap.min.js"></script>
     <script src="../static/Bootstrap/jquery.min.js"></script>
     <script src="../static/project.js"></script>
-    <!-- <script src="../static/script.js"></script> -->
+    <script src="../static/script.js"></script>
   </body>
 </html>
