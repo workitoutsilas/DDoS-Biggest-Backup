@@ -4,31 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Predictions</title>
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <link rel="stylesheet" href="../static/Bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/Bootstrap/fontawesomeall.min.css" /> -->
     <link rel="stylesheet" href="../static/style.css" />
     <link rel="icon" href="../static/Images/icon.png" />
-    <title>DDoS Attack Detection - Machine Learning | IoT</title>
-    <style>
-      /* Add your custom styles here */
-    </style>
   </head>
   <body>
-    <!-- <div class="spinner-border text-secondary" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div> -->
-    <div class="main container-fluid">
-      <h1>Predictions</h1>
-
+    <div class="container">
+      <h1>Model Predictions</h1>
       <!-- Display predictions table here -->
-      {% for table in tables %} {{ table | safe }} {% endfor %}
+      <div class="table-container table-responsive">
+        {% for table in tables %} {{ table | safe }} {% endfor %}
+      </div>
     </div>
+    <!-- Script Files -->
+    <script src="../static/Bootstrap/jquery.min.js"></script>
+    <script src="../static/Bootstrap/bootstrap.min.js"></script>
   </body>
 </html>
