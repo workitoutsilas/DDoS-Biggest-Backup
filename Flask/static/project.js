@@ -184,6 +184,7 @@ function animateProcessing() {
   let percentage = 0;
 
   const interval = setInterval(() => {
+    processingValue.textContent = "Processing...";
     degree += 1;
     percentage += 1;
     processingElement.style.background = `conic-gradient(#013e40 ${degree}deg, #ededed 0deg)`;
