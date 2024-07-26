@@ -59,7 +59,7 @@ def predict():
 
             # Convert predictions to DataFrame and merge with original DataFrame
             df['Prediction'] = predictions
-            df['Prediction Probability (1)'] = [prediction_proba[i, prediction] for i, prediction in enumerate(predictions)]
+            df['Prediction Probability (Max = 1)'] = [prediction_proba[i, prediction] for i, prediction in enumerate(predictions)]
 
             # Store the DataFrame in session
             session['prediction_df'] = df.to_json(orient='split')
