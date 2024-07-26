@@ -20,7 +20,7 @@ This project is a web application designed to monitor and manage potential DDoS 
 - `static/` - Contains static files such as CSS, JavaScript, and images.
 - `templates/` - Contains HTML templates for the project.
 - `VirtlEnv/` - Python virtual environment.
-- `app.py` - Flask app - Backend.
+- `tryThis.py` - Flask app - Backend.
 
 ## Prerequisites
 
