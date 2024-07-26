@@ -102,7 +102,7 @@ function showModal() {
 /** Input file Max file size */
 function validateFileSize(input) {
   const file = input.files[0];
-  const maxSize = 2 * 1024 * 1024; // 2 MB
+  const maxSize = 30 * 1024 * 1024; // 2 MB
   console.log(file.size);
 
   if (file.size > maxSize) {
@@ -113,6 +113,102 @@ function validateFileSize(input) {
 }
 
 /* Main File*/
+function submitData(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  // Show the spinner
+  const spinnerContainer = document.getElementById("spinnerContainer");
+  if (spinnerContainer) {
+    spinnerContainer.style.display = "block";
+  } else {
+    console.error("Spinner container not found!");
+    return;
+  }
+
+  fetch("http://127.0.0.1:5000/predict", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      return response.json().then((data) => {
+        // animateProcessing();
+        if (response.ok) {
+          // Handle the successful response
+          console.log("Success:", data);
+          replaceSpinnerWithCheckIcon();
+          resultBtn.disabled = false;
+          resultBtn.classList.add("hover");
+          // processingValue.textContent = "Processed";
+        } else {
+          // Handle the unsuccessful response
+          console.log("No success:", data);
+        }
+      });
+    })
+    .catch((err) => console.error("Fetch error:", err.message));
+}
+
+function replaceSpinnerWithCheckIcon() {
+  const spinnerContainer = document.getElementById("spinnerContainer");
+  if (spinnerContainer) {
+    spinnerContainer.style.opacity = 0;
+
+    setTimeout(() => {
+      spinnerContainer.classList.remove("spinner-border");
+      spinnerContainer.innerHTML = '<i class="bi bi-check"></i>';
+      spinnerContainer.style.opacity = 1;
+    }, 500); // Wait for the fade-out transition to complete
+  } else {
+    console.error("Spinner container not found!");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("dataForm");
+  if (form) {
+    form.addEventListener("submit", submitData);
+  } else {
+    console.error("Form not found!");
+  }
+});
+
+// function submitData(event) {
+//   event.preventDefault();
+
+//   const formData = new FormData(event.target);
+//   // Show the spinner
+//   const spinnerContainer = document.getElementById("spinnerContainer");
+//   spinnerContainer.style.display = "block";
+
+//   fetch("http://127.0.0.1:5000/predict", {
+//     method: "POST",
+//     body: formData,
+//   })
+//     .then((response) => {
+//       response.json();
+//       // animateProcessing();
+//       if (response.ok) {
+//         // Handle the successful response
+//         console.log("Success:");
+//         replaceSpinnerWithCheckIcon();
+//       } else {
+//         // Handle the unsuccessful response
+//         console.log("No success:");
+//       }
+//     })
+//     .catch((err) => console.error("Fetch error:", err.message));
+// }
+// function replaceSpinnerWithCheckIcon() {
+//   const spinner = document.getElementById("spinnerContainer");
+//   spinner.style.opacity = 0;
+
+//   setTimeout(() => {
+//     spinner.innerHTML = '<i class="fa-solid fa-check fa-2x"></i>';
+//     spinner.style.opacity = 1;
+//   }, 500); // Wait for the fade-out transition to complete
+// }
+
 /** File to submit from form to Server */
 // function submitData(event) {
 //   event.preventDefault();
@@ -129,6 +225,7 @@ function validateFileSize(input) {
 // }
 
 /** File to submit from form to Server -- Main*/
+/*
 function submitData(event) {
   event.preventDefault();
 
@@ -140,10 +237,11 @@ function submitData(event) {
   })
     .then((response) => {
       response.json();
-      animateProcessing();
+      // animateProcessing();
       if (response.ok) {
         // Handle the successful response
         console.log("Success:");
+
       } else {
         // Handle the unsuccessful response
         console.log("No success:");
@@ -204,4 +302,4 @@ function animateProcessing() {
 
 function Results() {
   window.open("http://127.0.0.1:5000/pred", "_blank");
-}
+}*/
