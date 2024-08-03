@@ -22,7 +22,7 @@ html {
 /* Poppins font */
 @font-face {
   font-family: myFont;
-  src: url(Poppins/Poppins-Regular.ttf);
+  src: url(Font/Poppins-Regular.ttf);
 }
 
 /* Body */
@@ -108,6 +108,10 @@ h1 {
 
 /* Ensure the first row cells retain original background and text color on hover */
 .table-responsive thead tr:hover th {
+  background-color: var(--main-color);
+  color: var(--first-color);
+}
+.description {
   background-color: var(--main-color);
   color: var(--first-color);
 }
