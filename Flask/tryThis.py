@@ -91,4 +91,4 @@ def pred():
         return redirect(url_for('index', message='No predictions to display'))
 
 if __name__ == '__main__':
-    tryThis.run()
+    tryThis.run(debug=True, port=5001)
