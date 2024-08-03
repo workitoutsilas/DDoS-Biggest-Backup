@@ -11,16 +11,20 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="../static/Bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/Bootstrap/fontawesomeall.min.css" />
+    <!-- <link rel="stylesheet" href="../static/Bootstrap/fontawesomeall.min.css" /> -->
     <link rel="stylesheet" href="../static/project.css" />
     <link rel="icon" href="../static/Images/icon.png" />
     <title>DDoS Attack Detection - Machine Learning | IoT</title>
   </head>
   <body>
-    <!--Preloader-->
-    <!-- <div class="preloader"></div> -->
+    <!--Cursor animation-->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     <header>
-      <div class="nav-container container-fluid fixed-top">
+      <div
+        class="nav-container container-fluid fixed-top"
+        style="font-weight: bold"
+      >
         <!--Nav bar-->
         <nav class="container navbar navbar-expand-lg bg-body-transparent">
           <div class="container-fluid">
@@ -63,9 +67,9 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-12">
-                  <h1 class="display-5 line-height p-0" style="color: #013e40">
+                  <h1 id="typewriter" class="display-5 line-height p-0">
                     Using Machine Learning To Revolutionize the Detection of
-                    DDoS Attacks in IoT Environments
+                    DDoS Attacks in IoT Environments.
                   </h1>
                 </div>
                 <div class="w-100"></div>
@@ -199,9 +203,8 @@
               id="uploadForm"
               onsubmit="submitData(event)"
             >
-              <!--action="/predict"-->
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 new">
                   <!--File input container-->
                   <div
                     class="upload d-flex align-items-center justify-content-center flex-column"
@@ -224,7 +227,7 @@
                         "
                       >
                         file extension - .csv &<br />
-                        max. file size - 2MB
+                        max. file size - 3MB
                       </p>
                     </label>
                     <input
@@ -298,28 +301,62 @@
                   </div>
                 </div>
                 <div class="col-md-1"></div>
-                <div class="col-md-5">
+                <div class="col-md-5 news">
                   <!--File Submission Container-->
                   <div
                     class="submit d-flex align-items-center justify-content-around flex-column"
-                    style="
-                      height: 450px;
-                      border: 2px solid rgba(245, 245, 245, 0.534);
-                      border-radius: 10px;
-                    "
                   >
-                    <!--rgba(245, 245, 245, 0.534)-->
-                    <div class="mt-3" style="height: auto">
+                    <div class="mt-3">
                       <button disabled type="submit" id="subButn">
                         Submit
                       </button>
                     </div>
+                    <!--Loader-->
                     <div
-                      class="processing mt-3 d-flex align-items-center justify-content-center flex-column"
-                      style="border: 2px solid rgba(245, 245, 245, 0.534)"
+                      class="d-flex align-items-center justify-content-center flex-column"
                     >
-                      <p class="value fill">0%</p>
-                      <p class="pro-text">Processing</p>
+                      <div id="iconContainer" style="display: none">
+                        <div
+                          id="spinnerContainer"
+                          class="spinner-border hidden"
+                          role="status"
+                        >
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                        <svg
+                          id="checkmark"
+                          class="checkmark hidden"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 52 52"
+                        >
+                          <circle
+                            class="checkmark__circle"
+                            cx="26"
+                            cy="26"
+                            r="25"
+                            fill="#7ac142"
+                          />
+                          <path
+                            class="checkmark__check"
+                            fill="none"
+                            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+                          />
+                        </svg>
+                      </div>
+                      <p class="pro-text">
+                        <i
+                          class="fa-solid fa-hourglass-start fa-2x"
+                          style="color: rgba(245, 245, 245, 0.689)"
+                        ></i>
+                        <span
+                          class="p-0 mt-2 text-center"
+                          style="
+                            color: rgba(245, 245, 245, 0.689);
+                            font-size: 1em;
+                          "
+                          >awaiting <br />your submission</span
+                        >
+                      </p>
                     </div>
                     <div class="mb-3" style="height: auto">
                       <button
@@ -375,10 +412,10 @@
                                     "
                                   >
                                     <h3
-                                      class="text-center m-0 p-0"
+                                      class="text-center m-0 p-0 fw-bold"
                                       style="color: #013e40"
                                     >
-                                      Statistic Summary on Model predictions
+                                      STATISTIC SUMMARY ON MODEL PREDICTIONS
                                     </h3>
                                   </div>
                                   <div class="col-12" style="margin-top: 20px">
@@ -391,7 +428,7 @@
 
                                           <div
                                             id="labelContainer"
-                                            class="label-container"
+                                            class="label-container container"
                                           ></div>
                                         </div>
                                       </div>
@@ -400,10 +437,11 @@
                                           class="secondThis d-flex align-items-start justify-content-between flex-column"
                                         >
                                           <h4
-                                            class="fw-bold fs-3"
+                                            class="fw-bold fs-5"
                                             style="color: #013e40"
                                           >
-                                            Side Note.
+                                            SIDE NOTE : AVERAGE PREDICTION
+                                            PROBABILITY
                                           </h4>
                                           <p
                                             class="fw-bold fs-6"
@@ -485,7 +523,7 @@
                 Source Code | &nbsp
                 <a
                   class="footer-link"
-                  href="https://github.com/workitoutsilas/DDoS-Web-App/"
+                  href="https://github.com/workitoutsilas/DDoS-Biggest-Backup_Processing/"
                   target="_blank"
                   >Github -</a
                 >
@@ -493,7 +531,7 @@
               <p class="mt-3">
                 &nbsp<a
                   class="footer-link"
-                  href="https://github.com/workitoutsilas/DDoS-Web-App/"
+                  href="https://github.com/workitoutsilas/DDoS-Biggest-Backup_Processing/"
                   target="_blank"
                   ><i class="fa-brands fa-github fa-2x"></i
                 ></a>
@@ -529,12 +567,6 @@
     </footer>
     <!--Script Files-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script
-      src="Bootstrap/fontaweseomejsall.min.js"
-      integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <script src="../static/Bootstrap/bootstrap.min.js"></script>
     <script src="../static/Bootstrap/jquery.min.js"></script>
     <script src="../static/project.js"></script>

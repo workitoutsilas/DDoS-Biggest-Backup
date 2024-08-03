@@ -15,6 +15,12 @@
       <div class="table-container table-responsive">
         {% for table in tables %} {{ table | safe }} {% endfor %}
       </div>
+      <div
+        class="description container mx-1 d-flex align-items-center justify-content-center"
+      >
+        <p class="p-0 my-1 me-4">0 - Malicious traffic</p>
+        <p class="p-0 my-1 ms-4">1 - Normal traffic</p>
+      </div>
     </div>
     <!-- Script Files -->
     <script src="../static/Bootstrap/jquery.min.js"></script>
